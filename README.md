@@ -22,14 +22,19 @@ A full-stack MERN Expense Tracker application.
 ## Installation
 
 ### Backend
+```bash
 cd backend
 npm install
 npm start
+````
 
 ### Frontend
+```bash
 cd frontend/expense
 npm install
 npm run dev
+```
+
 ## Screenshots
 
 ### Homepage
