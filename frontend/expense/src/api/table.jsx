@@ -7,7 +7,7 @@ export const getallexpenses=async ()=>{
               const token=localStorage.getItem("token")
               if(!token)
               return;
-const response=await fetch("http://localhost:8000/api/expense",{
+const response=await fetch(" https://expense-tracker-gh8f.onrender.com/api/expense",{
        method:"GET",
        headers:{
               Authorization:token
@@ -23,7 +23,7 @@ return allexpense;
 export const deleteExpense=async (id)=>{
        try{
               const token=localStorage.getItem("token")
-              const response=await fetch("http://localhost:8000/api/remove",{
+              const response=await fetch(" https://expense-tracker-gh8f.onrender.com/api/remove",{
                      method:"Delete",
                      headers:{
                         "content-type":"application/json",
@@ -42,7 +42,7 @@ export const deleteExpense=async (id)=>{
 
 export const saveexpense=async (body)=>{
        const token=localStorage.getItem("token")
-       const response=await fetch("http://localhost:8000/api/expense",{
+       const response=await fetch(" https://expense-tracker-gh8f.onrender.com/api/expense",{
               method:"POST",
               headers:{
                 "content-type":"application/json",
@@ -54,7 +54,7 @@ export const saveexpense=async (body)=>{
 }
 export const updateExpense=async (id,body)=>{
         const token=localStorage.getItem("token")
-              const response=await fetch(`http://localhost:8000/api/update/${id}`,{
+              const response=await fetch(` https://expense-tracker-gh8f.onrender.com/api/update/${id}`,{
                      method:"PATCH",
                      headers:{
                      "Content-Type":"application/json",

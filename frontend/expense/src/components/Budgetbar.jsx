@@ -13,7 +13,7 @@ export default function Budgetbar() {
  const fetchbudget=async()=>{
   try{
   const token=localStorage.getItem("token")
-  const response=await fetch("http://localhost:8000/api/budget",{
+  const response=await fetch(" https://expense-tracker-gh8f.onrender.com/api/budget",{
     method:"GET",
     headers:{
       Authorization:token
@@ -36,7 +36,7 @@ catch(err){
    try{
   
     const token=localStorage.getItem("token")
-    const response=await fetch("http://localhost:8000/api/budget",{
+    const response=await fetch(" https://expense-tracker-gh8f.onrender.com/api/budget",{
       method:"PUT",
       headers:{
         "Content-Type":"application/json",

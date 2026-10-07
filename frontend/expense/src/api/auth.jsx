@@ -1,7 +1,7 @@
 import React from "react";
 
 export const postuserdetails=async(body)=>{
-       const response=await fetch("http://localhost:8000/api/signup",{
+       const response=await fetch(" https://expense-tracker-gh8f.onrender.com/api/signup",{
               method:"POST",
               headers:{
                      "Content-Type":"application/json"
@@ -12,7 +12,7 @@ export const postuserdetails=async(body)=>{
 }
 
 export const loginuser=async(body)=>{
-       const response=await fetch("http://localhost:8000/api/login",{
+       const response=await fetch(" https://expense-tracker-gh8f.onrender.com/api/login",{
               method:"POST",
               headers:{
                "Content-Type":"application/json"
