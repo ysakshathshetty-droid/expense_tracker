@@ -6,8 +6,9 @@ A full-stack MERN Expense Tracker application.
 - Edit Expenses
 - Delete Expenses
 - Category-wise Expense Pie Chart
-- Monthly Expense Graph
-- Set budget limits and monitor expense
+- Monthly Expense Trend Graph
+- Budget Tracking
+- Responsive UI
 
 ## Tech Stack
 - React.js
@@ -15,6 +16,8 @@ A full-stack MERN Expense Tracker application.
 - Express.js
 - MongoDB
 - Tailwind css
+- Recharts
+- JWT
 
 ## Installation
 
