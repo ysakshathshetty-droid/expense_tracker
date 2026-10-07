@@ -27,3 +27,16 @@ npm start
 cd frontend/expense
 npm install
 npm run dev
+## Screenshots
+
+### Homepage
+![Homepage](homepage.png)
+
+### Dashboard
+![Dashboard](dashboard.png)
+
+### SignUp Page
+![Signup](signup.png)
+
+### Login Page
+![Login](login.png)
