@@ -7,8 +7,8 @@ export default function Homepage() {
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-blue-800">
       <nav className="shadow-sm ">
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-          <h1 className="text-2xl font-bold text-gray-400 flex">
-           <img className='me-3' src="./expense_symbol.png" alt="" style={{width:"40px",height:"40px"}}/> Expense Tracker
+          <h1 className="text-2xl font-bold text-gray-400 flex text-xl md:text-2xl ">
+           <img className='me-3 text-xl md:w-[40px] md:h-[40px] w-[30px] h-[30px] mt-3 md:mt-0' src="./expense_symbol.png" alt="" /> Expense Tracker
           </h1>
 
           <div className="flex gap-3">
