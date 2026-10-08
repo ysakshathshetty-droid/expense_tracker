@@ -15,7 +15,7 @@ export default function Recentexptable() {
     setTimeout(()=>setdeletingid(null),1000)
   }
   return (
-       <div className="bg-white rounded-xl shadow-md p-4 overflow-x-auto lg:mt-5 min-h-[320px]">
+       <div className="bg-white rounded-xl shadow-md p-4 overflow-x-scroll lg:mt-5 min-h-[320px]">
   <div className="flex justify-between items-center mb-2">
     <h2 className="text-xl font-semibold">
       Recent Expenses 
