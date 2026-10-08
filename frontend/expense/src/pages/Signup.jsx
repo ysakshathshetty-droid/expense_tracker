@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
 export default function Signup() {
+  const [loading,setloading]=useState(false)
   const [name,setname]=useState("")
   const [email,setemail]=useState("")
   const [password,setpassword]=useState("")
@@ -18,11 +19,13 @@ export default function Signup() {
     alert("Passwords do not match")
     return;
   }
+  setloading(true)
   const data=await postuserdetails({
     name,
     email,
     password
   });
+  setloading(false)
   if(data.message=="user already found"){
     toast.warning("User already found")
   }
@@ -77,9 +80,9 @@ export default function Signup() {
            value={confirmpassword} onChange={(e)=>setconfirmpassword(e.target.value)}/>
 
           <button
-            className="w-full bg-cyan-500 hover:bg-cyan-600 text-white py-3 rounded-lg font-semibold transition"
+            className="w-full bg-cyan-500 hover:bg-cyan-600 text-white py-3 rounded-lg font-semibold transition hover:cursor-pointer"
           >
-            Sign Up
+            {loading?"Signing up...":"Sign Up"}
           </button>
         </form>
 

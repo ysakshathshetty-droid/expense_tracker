@@ -3,6 +3,7 @@ import { ExpenseContext } from '../context/ExpenseContext'
 import { toast } from 'react-toastify'
 
 export default function Addexpense() {
+  const [loading,setloading]=useState(false)
   const [title,settitle]=useState("")
   const [amount,setamount]=useState("")
   const [category,setcategory]=useState("")
@@ -23,7 +24,9 @@ export default function Addexpense() {
       category,
       date
     }
+    setloading(true)
     await addExpense(body)
+    setloading(false)
    toast.success("Expense added successfuly!")
   settitle("")
   setamount("")
@@ -74,9 +77,9 @@ export default function Addexpense() {
   </div>
 <div className='flex justify-center'>
   <button
-      className="w-20 align-items-center  bg-purple-600 hover:bg-purple-700 text-white py-2 rounded-lg font-medium mt-2"
+      className="w-20 align-items-center  bg-purple-600 hover:bg-purple-700 text-white py-2 rounded-lg font-medium mt-2 hover:cursor-pointer"
     onClick={handlesave}>
-      Save
+      {loading?"Saving...":"Save"}
     </button>
 </div>
 

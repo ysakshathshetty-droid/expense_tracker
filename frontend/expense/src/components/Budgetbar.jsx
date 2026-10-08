@@ -3,6 +3,7 @@ import { ExpenseContext } from '../context/ExpenseContext';
 import { useEffect } from 'react';
 
 export default function Budgetbar() {
+  const [loading,setloading]=useState(false)
   const [budget,setbudget]=useState("");
   const [savebudget,setsavebudget]=useState(0)
 
@@ -36,6 +37,7 @@ catch(err){
    try{
   
     const token=localStorage.getItem("token")
+    setloading(true)
     const response=await fetch(" https://expense-tracker-gh8f.onrender.com/api/budget",{
       method:"PUT",
       headers:{
@@ -46,10 +48,9 @@ catch(err){
         budget:Number(budget)
       })
     })
-    console.log("received")
     const data=await response.json();
-    console.log(data)
     setsavebudget(data.budget)
+    setloading(false)
     
     setbudget("")
    } catch(err){
@@ -57,13 +58,13 @@ catch(err){
    }
    }
   return (
-    <div className="bg-white rounded-xl shadow p-3  lg:w-[940px] lg:mx-5 mt-3">
+    <div className="bg-white rounded-xl shadow p-3  lg:w-[940px] lg:mx-5 mt-3 mx-4">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-1">
         <h2 className="text-lg font-semibold">Set Monthly Budget Goal</h2>
         <div className='flex flex-col sm:flex-row gap-3 mb-4'>
          <input className='border border-black border-2 rounded-xl pl-2' type="number" placeholder='Enter monthly budget' value={budget} onChange={(e)=>{setbudget(e.target.value)}} />     
-        <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md" onClick={handlesavebudget}>
-          Save
+        <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md hover:cursor-pointer" onClick={handlesavebudget}>
+          {loading?"Saving...":"Save"}
         </button>
         </div>
       </div>

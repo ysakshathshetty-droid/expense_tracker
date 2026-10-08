@@ -14,7 +14,7 @@ export default function Homepage() {
           <div className="flex gap-3">
             <Link
               to="/login"
-              className="px-4 py-2 border border-white text-white  rounded-lg hover:bg-slate-100 hover:text-black"
+              className="px-4 py-2 h-10 border border-white text-white  rounded-lg hover:bg-slate-100 hover:text-black"
             >
               Login
             </Link>

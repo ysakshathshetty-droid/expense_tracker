@@ -25,11 +25,11 @@ export default function Navbar({ setSidebarOpen }) {
 
 
       <div className="flex items-center gap-3 md:gap-5">
-      <input className='w-32 p-2 border-2 border-b rounded-xl sm:w-44' type="month" value={month} onChange={(e)=>setmonth(e.target.value)} />
+      <input className='w-32 p-2 border-2 border-b rounded-xl sm:w-44 text-sm' type="month" value={month} onChange={(e)=>setmonth(e.target.value)} />
 
         <div className="relative">
   <img
-    className="w-9 h-9 md:w-10 md:h-10 cursor-pointer"
+    className="w-12 h-12 md:w-10 md:h-10 cursor-pointer"
     src="./user.png"
     alt=""
     onClick={() => setShowProfile(!showProfile)}

@@ -1,14 +1,18 @@
 import React,{useContext} from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ExpenseContext } from '../context/ExpenseContext'
+import { useState } from 'react'
 
 export default function Recentexptable() {
+  const [deletingid,setdeletingid]=useState(null)
   const navigate=useNavigate()
   const {allexpense,filteredExpenses,month,removeExpenses,setShowEditModal,seteditexpense}=useContext(ExpenseContext)
   const monthName=new Date(month+"-01").toLocaleString("en-US",{ month:"long",year:"numeric"})
 
   const handledelete=async (id)=>{
+    setdeletingid(id)
       await removeExpenses(id)
+    setTimeout(()=>setdeletingid(null),1000)
   }
   return (
        <div className="bg-white rounded-xl shadow-md p-4 overflow-x-auto lg:mt-5 min-h-[320px]">
@@ -17,7 +21,7 @@ export default function Recentexptable() {
       Recent Expenses 
     </h2>
 
-    <button className="px-3 py-1 border rounded-md text-sm hover:bg-gray-100" onClick={()=>{navigate("/viewall")}}>
+    <button className="px-3 py-1 border rounded-md text-sm hover:bg-gray-100 hover:cursor-pointer" onClick={()=>{navigate("/viewall")}}>
       View All
     </button>
   </div>
@@ -59,15 +63,15 @@ export default function Recentexptable() {
 
           <td className="py-2 flex gap-2">
             <button
-              className="px-3 py-1 border border-blue-500 text-blue-500 rounded hover:bg-blue-50"
+              className="px-3 py-1 border border-blue-500 text-blue-500 rounded hover:bg-blue-50 hover:cursor-pointer"
            onClick={()=>{seteditexpense(expense),setShowEditModal(true) ;}} >
               Edit
             </button>
 
             <button
-              className="px-3 py-1 border border-red-500 text-red-500 rounded hover:bg-red-50"
+              className="px-3 py-1 border border-red-500 text-red-500 rounded hover:bg-red-50 hover:cursor-pointer"
             onClick={()=>handledelete(expense._id)}>
-              Delete
+              {deletingid===expense._id?"Deleting...":"Delete"}
             </button>
           </td>
         </tr>

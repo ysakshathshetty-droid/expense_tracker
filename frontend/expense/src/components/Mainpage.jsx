@@ -29,7 +29,7 @@ return filteredExpenses.reduce((max,expense)=>
      
       <div className='grid grid-cols-1 lg:grid-cols-3 gap-2 lg:mx-5'>
         <div className='lg:col-span-2 space-y-3 w-full '>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 lg:mx-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 lg:mx-5 m-4 lg:m-1">
      <Cards icon={"/graph.png"}
       title={monthName}
       amount={`₹${total()}`}
@@ -47,14 +47,14 @@ return filteredExpenses.reduce((max,expense)=>
       color={"yellow"}/>
       </div>
 
-<div className='grid lg:flex lg:items-start gap-2'>
+<div className='grid lg:flex lg:items-start gap-2 m-4 lg:m-0'>
 <Addexpense/>
 <Recentexptable filteredExpenses={filteredExpenses}/>
 </div>
 <Budgetbar/>
 </div>
 
-<div className='space-y-5  lg:col-span-1 lg:m-5'>
+<div className='space-y-5  lg:col-span-1 lg:m-5 m-4'>
 <Expensepiechart/>
 <Graph/>
 </div>

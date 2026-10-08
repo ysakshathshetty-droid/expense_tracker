@@ -15,7 +15,7 @@ export default function Viewall() {
        <div className="p-4">
       <button
         onClick={() => navigate(-1)}
-        className="mb-4 px-4 py-2 border rounded-md hover:bg-gray-100"
+        className="mb-4 px-4 py-2 border rounded-md hover:bg-gray-100 hover:cursor-pointer"
       >
         ← Back
       </button>
@@ -72,11 +72,11 @@ export default function Viewall() {
 
               <td className="py-3">
                 <div className="flex gap-2">
-                  <button className="px-3 py-1 border border-blue-400 text-blue-500 rounded-md hover:bg-blue-50"  onClick={()=>{seteditexpense(expense),setShowEditModal(true) ;}}>
+                  <button className="px-3 py-1 border border-blue-400 text-blue-500 rounded-md hover:bg-blue-50 hover:cursor-pointer"  onClick={()=>{seteditexpense(expense),setShowEditModal(true) ;}}>
                     Edit
                   </button>
 
-                  <button className="px-3 py-1 border border-red-400 text-red-500 rounded-md hover:bg-red-50" onClick={()=>handledelete(expense._id)}>
+                  <button className="px-3 py-1 border border-red-400 text-red-500 rounded-md hover:bg-red-50 hover:cursor-pointer" onClick={()=>handledelete(expense._id)}>
                     Delete
                   </button>
                 </div>

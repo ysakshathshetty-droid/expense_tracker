@@ -7,6 +7,7 @@ import { toast } from 'react-toastify'
 
 export default function Login() {
   const {fetchexpenses}=useContext(ExpenseContext)
+  const [loading,setLoading]=useState(false)
  const [email,setemail]=useState("")
  const [password,setpassword]=useState("")
  const navigate=useNavigate()
@@ -17,10 +18,12 @@ if(!email || !password){
   toast.warning("Please fill all fields!")
   return;
 }
+setLoading(true)
 const data=await loginuser({
   email,
   password
 })
+setLoading(false)
 if(data.message){
   toast.error("Either Email or Password is wrong")
 }
@@ -68,9 +71,9 @@ if(data.token){
            value={password} onChange={(e)=>setpassword(e.target.value)}/>
 
           <button
-            className="w-full bg-cyan-500 hover:bg-cyan-600 text-white py-3 rounded-lg font-semibold transition"
+            className="w-full bg-cyan-500 hover:bg-cyan-600 text-white py-3 rounded-lg font-semibold transition hover:cursor-pointer"
           >
-            Login
+            {loading?"Logging in..":"Login"}
           </button>
         </form>
 
@@ -78,7 +81,7 @@ if(data.token){
           Don't have an account?{" "}
           <Link
             to="/signup"
-            className="text-cyan-400 font-semibold"
+            className="text-cyan-400 font-semibold hover:cursor-pointer"
           >
             Sign Up
           </Link>

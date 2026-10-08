@@ -2,6 +2,7 @@ import React,{useContext, useState,useEffect} from 'react'
 import { ExpenseContext } from '../context/ExpenseContext'
 import { toast } from 'react-toastify'
 export default function Editexpense() {
+       const[loading,setloading]=useState(false)
        const [title,settitle]=useState("")
          const [amount,setamount]=useState("")
          const [category,setcategory]=useState("")
@@ -29,7 +30,9 @@ export default function Editexpense() {
     toast.warning("Please fill all the fields")
     return
   }
+   setloading(true)
    await editExpense(editexpense._id,body)
+   setloading(false)
     setShowEditModal(false)
    seteditexpense(null)
    toast.success("Edited successfuly!")
@@ -75,15 +78,15 @@ export default function Editexpense() {
       <div className="flex justify-center gap-2 mt-4">
         <button
           onClick={() => setShowEditModal(false)}
-          className="px-4 py-2 border rounded-md"
+          className="px-4 py-2 border rounded-md hover:cursor-pointer"
         >
           Cancel
         </button>
 
         <button
-          className="px-4 py-2 bg-purple-600 text-white rounded-md"
+          className="px-4 py-2 bg-purple-600 text-white rounded-md hover:cursor-pointer"
        onClick={handlesave} >
-          Save
+          {loading?"Saving...":"Save"}
         </button>
       </div>
     </div>
